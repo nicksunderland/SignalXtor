@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6a4709ce-eb8f-4290-aa85-3f397534411f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/case_files/5-LA300.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case_files/5-LA300_missing_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300.mesh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P10_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P11_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P11_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P12_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P13_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P14_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P15_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P16_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P17_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P18_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P19_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P20_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_CS_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_ECG_Export.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_NAVISTAR_CONNECTOR_Sensor_Positions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_P21_Point_Export.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example_data/CartoStudy2/5-LA300_car.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainwindow.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UiwcrcR17cJbQTP0r5IvJFc1XW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SignalXtor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a4709ce-eb8f-4290-aa85-3f397534411f" name="Default Changelist" comment="" />
+      <created>1575852805026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575852805026</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="508" y="144" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1575860964189">
+      <screen x="0" y="23" width="1440" height="819" />
+    </state>
+    <state x="508" y="144" key="#com.intellij.ide.macro.MacrosDialog/0.23.1440.819@0.23.1440.819" timestamp="1575860964189" />
+    <state x="203" y="186" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576282020622">
+      <screen x="0" y="23" width="1440" height="819" />
+    </state>
+    <state x="203" y="186" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.819@0.23.1440.819" timestamp="1576282020622" />
+    <state x="486" y="269" width="856" height="471" key="#com.intellij.tools.ToolEditorDialog" timestamp="1575860980490">
+      <screen x="0" y="23" width="1440" height="819" />
+    </state>
+    <state x="486" y="269" width="856" height="471" key="#com.intellij.tools.ToolEditorDialog/0.23.1440.819@0.23.1440.819" timestamp="1575860980490" />
+    <state x="508" y="193" key="FileChooserDialogImpl" timestamp="1575855406173">
+      <screen x="0" y="23" width="1440" height="819" />
+    </state>
+    <state x="508" y="193" key="FileChooserDialogImpl/0.23.1440.819@0.23.1440.819" timestamp="1575855406173" />
+    <state width="1842" height="336" key="GridCell.Tab.0.bottom" timestamp="1576801294086">
+      <screen x="55" y="24" width="1865" height="1176" />
+    </state>
+    <state width="990" height="198" key="GridCell.Tab.0.bottom/0.23.1440.819@0.23.1440.819" timestamp="1576662087455" />
+    <state width="1842" height="336" key="GridCell.Tab.0.bottom/55.24.1865.1176@55.24.1865.1176" timestamp="1576801294086" />
+    <state width="1842" height="336" key="GridCell.Tab.0.center" timestamp="1576801294084">
+      <screen x="55" y="24" width="1865" height="1176" />
+    </state>
+    <state width="990" height="198" key="GridCell.Tab.0.center/0.23.1440.819@0.23.1440.819" timestamp="1576662087454" />
+    <state width="1842" height="336" key="GridCell.Tab.0.center/55.24.1865.1176@55.24.1865.1176" timestamp="1576801294084" />
+    <state width="1842" height="336" key="GridCell.Tab.0.left" timestamp="1576801294082">
+      <screen x="55" y="24" width="1865" height="1176" />
+    </state>
+    <state width="990" height="198" key="GridCell.Tab.0.left/0.23.1440.819@0.23.1440.819" timestamp="1576662087454" />
+    <state width="1842" height="336" key="GridCell.Tab.0.left/55.24.1865.1176@55.24.1865.1176" timestamp="1576801294082" />
+    <state width="1842" height="336" key="GridCell.Tab.0.right" timestamp="1576801294085">
+      <screen x="55" y="24" width="1865" height="1176" />
+    </state>
+    <state width="990" height="198" key="GridCell.Tab.0.right/0.23.1440.819@0.23.1440.819" timestamp="1576662087454" />
+    <state width="1842" height="336" key="GridCell.Tab.0.right/55.24.1865.1176@55.24.1865.1176" timestamp="1576801294085" />
+    <state x="241" y="347" key="SettingsEditor" timestamp="1576695040856">
+      <screen x="55" y="24" width="1865" height="1176" />
+    </state>
+    <state x="229" y="71" key="SettingsEditor/0.23.1440.819@0.23.1440.819" timestamp="1576446488625" />
+    <state x="241" y="347" key="SettingsEditor/55.24.1865.1176@55.24.1865.1176" timestamp="1576695040856" />
+  </component>
+</project>

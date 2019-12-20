@@ -1,0 +1,21 @@
+<Point ID="19" Date="10/15/17" Time="16:57:05">
+    <Annotations StartTime="3857579" Reference_Annotation="2000" Map_Annotation="2085" />
+    <WOI From="22" To="173" />
+    <Voltages Unipolar="3.15" Bipolar="1.119" />
+    <Positions>
+        <Connector NAVISTAR_CONNECTOR="5-LA300_P19_NAVISTAR_CONNECTOR_Eleclectrode_Positions.txt" />
+        <Connector NAVISTAR_CONNECTOR="5-LA300_P19_NAVISTAR_CONNECTOR_Sensor_Positions.txt" />
+        <Connector MAGNETIC_20_POLE_A_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt" />
+        <Connector MAGNETIC_20_POLE_A_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions.txt" />
+        <Connector MAGNETIC_20_POLE_B_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions.txt" />
+        <Connector CS_CONNECTOR="5-LA300_P19_CS_CONNECTOR_Eleclectrode_Positions.txt" />
+        <Connector NAVISTAR_CONNECTOR="5-LA300_P19_NAVISTAR_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" />
+        <Connector NAVISTAR_CONNECTOR="5-LA300_P19_NAVISTAR_CONNECTOR_Sensor_Positions_OnAnnotation.txt" />
+        <Connector MAGNETIC_20_POLE_A_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" />
+        <Connector MAGNETIC_20_POLE_A_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_A_CONNECTOR_Sensor_Positions_OnAnnotation.txt" />
+        <Connector MAGNETIC_20_POLE_B_CONNECTOR="5-LA300_P19_MAGNETIC_20_POLE_B_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" />
+        <Connector CS_CONNECTOR="5-LA300_P19_CS_CONNECTOR_Eleclectrode_Positions_OnAnnotation.txt" />
+    </Positions>
+    <Impedances Rate="100" Number="0" StartTime="3857579" />
+    <ECG FileName="5-LA300_P19_ECG_Export.txt" />
+</Point>
