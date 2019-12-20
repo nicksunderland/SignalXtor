@@ -1,0 +1,7 @@
+***SIGNALXTOR MISSING DATA INFORMATION***
+
+Study: 5-LA300
+
+[Point, Unipolar, Bipolar, Reference, ECG lead, Missing file]
+
+["['11', '20A_13', '20A_13-14', 'CS3-CS4', 'Lead I ECG']", '.../5-LA300_P11_MAGNETIC_20_POLE_A_CONNECTOR_Eleclectrode_Positions.txt']

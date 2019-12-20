@@ -7,9 +7,6 @@ import numpy as np
 
 class Extractor(QObject):
 
-    extractor_progress_signal = pyqtSignal(int)
-    extractor_interim_result_signal = pyqtSignal(object)
-
     def __init__(self, system_type, root, new_file_path, study_name):
         super(Extractor, self).__init__()
 
@@ -36,13 +33,13 @@ class Extractor(QObject):
 
         # Extract data, depending on the system format
         if self.system_type == "carto":
-            self.extract_carto_data()
+            self.extract_carto_data(signals)
         elif self.system_type == "other":
             return "Other mapping system option was selected - aborted"
 
         return "extract_data function complete"
 
-    def extract_carto_data(self):
+    def extract_carto_data(self, signals):
         """
         Extracts the data to the .h5 file from CARTO files
         """
@@ -119,9 +116,9 @@ class Extractor(QObject):
                         reference_data[storage_idx, :] = signal_data[:, 2]
                         ecg_data[storage_idx, :] = signal_data[:, 3]
 
-                self.extractor_progress_signal.emit(100 * (i / max_num_files))
+                signals.progress.emit(100 * (i / max_num_files))
 
-            self.extractor_progress_signal.emit(0)
+            signals.progress.emit(0)
 
         # Cycle the points looking for point geometry files
         for i, point in enumerate(points_info):
@@ -158,7 +155,7 @@ class Extractor(QObject):
 
             if not os.path.isfile(coords_file_path):
                 # Coordinate data file not found / keep track of index and continue the loop
-                points_info_missing_data.append([point, coords_file_path])
+                points_info_missing_data.append([point, ".../" + coords_file_path.split("/")[-1]])
                 missing_data_idxs.append(i)
                 continue
 
@@ -189,7 +186,7 @@ class Extractor(QObject):
             else:
                 point_coords.append(raw_pt_coords[:, 1:4])
 
-            self.extractor_progress_signal.emit(100 * (i / max_num_files))
+            signals.progress.emit(100 * (i / max_num_files))
 
         # Only save points with data
         good_data_idxs = list(set(range(0, unipolar_data.shape[0])) - set(missing_data_idxs))
@@ -220,9 +217,8 @@ class Extractor(QObject):
                 f_txt.write("\n\n".join(str(missing_point) for missing_point in points_info_missing_data))
 
             # Emit signal with missing data info
-            self.extractor_interim_result_signal.emit(missing_data_txt_file)
+            signals.missing_files_path.emit(missing_data_txt_file)
 
         # Reset progress bar on leaving
-        self.extractor_progress_signal.emit(0)
-
+        signals.progress.emit(0)
 

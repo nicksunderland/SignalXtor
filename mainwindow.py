@@ -2,11 +2,10 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QFileSystemMo
 from PyQt5.QtCore import QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot
 import os, traceback, sys, subprocess
 import re
-
 os.system("pyuic5 UI_files/ui_mainwindow.ui > UI_files/ui_mainwindow.py")
 from UI_files.ui_mainwindow import Ui_MainWindow
 import signalwindow
-# import meshwindow
+import meshwindow
 import extractor
 import data
 
@@ -20,6 +19,7 @@ class ThreadSignals(QObject):
     interim_result = pyqtSignal(object)
     result = pyqtSignal(object)
     progress = pyqtSignal(int)
+    missing_files_path = pyqtSignal(str)
 
 
 class ThreadClass(QRunnable, QObject):
@@ -67,11 +67,12 @@ class MainWindow(QMainWindow):
         self.ui.verticalLayout_graph_holder.addWidget(self.signal_window.graph)
 
         # Setup the mesh plotting window
-        # self.mesh_window = meshwindow.MeshWindow()
-        # self.ui.vispy_layout.addWidget(self.mesh_window.canvas.native)
+        self.mesh_window = meshwindow.MeshWindow()
+        self.ui.vispy_layout.addWidget(self.mesh_window.canvas.native)
 
         # Init other variables
         self.tree_view_model = QFileSystemModel()
+        self.tree_view_model.setNameFilters(["*.h5"])
         self.studies_list = []
         self.import_case_filepath = ""
         self.data_obj = None
@@ -175,8 +176,9 @@ class MainWindow(QMainWindow):
 
         # First check if it already exists / ok to overwrite it
         if os.path.isfile(new_file_path):
-            msgbox = QMessageBox.warning(None, "Warning", "Project: \n" + new_file_path + ".h5\n...already exists. "
-                                                                                          "\nDo you want to overwrite it?",
+            msgbox = QMessageBox.warning(None, "Warning", "Project: \n\n" + new_file_path.split("/case_files/")[1] +
+                                                          "\n\n...already exists. "
+                                                          "\n\nDo you want to overwrite it?",
                                          QMessageBox.Yes | QMessageBox.No)
             # Check if want to overwrite file
             if msgbox == QMessageBox.No:
@@ -192,9 +194,7 @@ class MainWindow(QMainWindow):
         # Create a new thread and pass the extractor function in, no variables needed (went into the __init__)
         kwargs = {"null": None}
         worker_thread = ThreadClass(e.extract_data, **kwargs)
-        e.extractor_progress_signal.connect(worker_thread.signals.progress)  # daisy chain the signals ---"
-        e.extractor_interim_result_signal.connect(worker_thread.signals.interim_result)
-        worker_thread.signals.interim_result.connect(self.handle_missing_data)
+        worker_thread.signals.missing_files_path.connect(self.handle_missing_data)
         worker_thread.signals.progress.connect(self.update_progress_bar)     # daisy chain the signals ---^
         worker_thread.signals.result.connect(self.print_output)
 
@@ -202,21 +202,17 @@ class MainWindow(QMainWindow):
         self.threadpool.start(worker_thread)
 
     def handle_missing_data(self, missing_data_file):
-
-        print(missing_data_file)
-
-        # msgbox = QMessageBox.warning(None, "Warning", "Some data files not found. \n\n"
-        #                                               "Do you want to view the missing data information?",
-        #                              QMessageBox.Yes | QMessageBox.No)
-        # if msgbox == QMessageBox.Yes:
-        #     if sys.platform == 'linux2':
-        #         subprocess.call(["xdg-open", missing_data_file])
-        #     else:
-        #         os.startfile(missing_data_file)
-        # else:
-        #     return
+        msgbox = QMessageBox.warning(None, "Warning", "Some data files not found. \n\n"
+                                                      "Do you want to view the missing data information?",
+                                     QMessageBox.Yes | QMessageBox.No)
+        if msgbox == QMessageBox.Yes:
+            # Open the .txt file with the default OS programme
+            subprocess.run(['open', missing_data_file], check=True)
+        else:
+            return
 
     def print_output(self, s):
+        self.ui.progressBar.setValue(0)
         print("Thread return: " + str(s))
 
     def update_progress_bar(self, percent_done):
@@ -256,7 +252,13 @@ class MainWindow(QMainWindow):
                                          "\nSure?",
                                          QMessageBox.Yes | QMessageBox.No)
             if msgbox == QMessageBox.Yes:
+                # Remove the data file
                 os.remove(self.import_case_filepath)
+                # Also look for any missing data information .txt files and delete too
+                missing_data_file_info_path = self.import_case_filepath.split(".h5")[0] + "_missing_data.txt"
+                if os.path.isfile(missing_data_file_info_path):
+                    os.remove(missing_data_file_info_path)
+
             elif msgbox == QMessageBox.No:
                 return
 
