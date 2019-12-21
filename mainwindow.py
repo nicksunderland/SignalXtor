@@ -22,7 +22,7 @@ class ThreadSignals(QObject):
     missing_files_path = pyqtSignal(str)
 
 
-class ThreadClass(QRunnable, QObject):
+class ThreadClass(QRunnable):
     """
     The worker thread class. Inherits from QRunnable to handler worker thread setup, signals and wrap-up.
     """
@@ -77,7 +77,6 @@ class MainWindow(QMainWindow):
         self.import_case_filepath = ""
         self.data_obj = None
         self.threadpool = QThreadPool()
-        print("Multithreading with maximum %d threads" % self.threadpool.maxThreadCount())
 
         # Make the button connections
         self.make_button_connections()
@@ -90,6 +89,7 @@ class MainWindow(QMainWindow):
         self.dir_changed()
 
     def make_button_connections(self):
+        # Mainwindow GUI buttons / signals
         self.ui.toolButton_directory.clicked.connect(self.find_directory)
         self.ui.lineEdit_directory.textChanged.connect(self.dir_changed)
         self.ui.pushButton_close.clicked.connect(self.close)
@@ -98,6 +98,9 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_delete_study.clicked.connect(self.delete_study_button_pushed)
         self.ui.treeView_casesDir.clicked.connect(self.set_import_case_filepath)
         self.ui.spinBox_signals.valueChanged.connect(self.update_signal_window)
+
+        # Pyqtgraph (signal window) signals
+        self.signal_window.graph.scene().sigMouseMoved.connect(self.set_sig_win_pos_label)
 
     def find_saved_cases(self):
         # Set the treeView for the case_files directory
@@ -277,3 +280,7 @@ class MainWindow(QMainWindow):
             return
         else:
             self.mesh_window.update_plot()
+
+    def set_sig_win_pos_label(self, mouse_event):
+        p = self.signal_window.graph.plotItem.vb.mapSceneToView(mouse_event)
+        self.ui.label_graph_position.setText("{0:.2f}(mV) - {1:.0f}(msec)".format(p.y(), p.x()))

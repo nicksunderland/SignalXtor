@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1101</width>
-    <height>706</height>
+    <width>1086</width>
+    <height>702</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -129,7 +129,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>162</width>
+             <width>156</width>
              <height>68</height>
             </rect>
            </property>
@@ -218,6 +218,34 @@
           </item>
           <item>
            <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>148</width>
+              <height>22</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_graph_position">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>__(mV) - __(msec)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -402,7 +430,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1101</width>
+     <width>1086</width>
      <height>22</height>
     </rect>
    </property>
