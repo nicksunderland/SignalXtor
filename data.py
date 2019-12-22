@@ -2,8 +2,23 @@ import h5py
 import numpy as np
 
 
-class Data:
+class EMGpoint:
+    """
+    A class defining a particular point of interest in the EMG - e.g. a stimulation time,
+    QRS activation time, or atrial activation time
+    """
+    def __init__(self, point_time, pre_pt_win=50, post_pt_win=50, win_shape="exp"):
+        self.point_time = point_time
+        self.pre_pt_win = pre_pt_win
+        self.post_pt_win = post_pt_win
+        self.win_shape = win_shape
 
+
+class Data:
+    """
+    A class to hold elements of the study's data file, process those elements, and hold
+    them in a form that is easily transferred to the graphics interface
+    """
     def __init__(self, study_file_path):
         # Save the path to the h5 file
         self.study_file_path = study_file_path
@@ -18,6 +33,8 @@ class Data:
         self.mV_gain = []
         self.vertices = np.array([])
         self.faces = np.array([])
+        self.subtraction_list = []
+        self.activation_list = []
 
         # Read in the data from the .h5 file
         self.read_in_data()

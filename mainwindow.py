@@ -4,10 +4,10 @@ import os, traceback, sys, subprocess
 import re
 os.system("pyuic5 UI_files/ui_mainwindow.ui > UI_files/ui_mainwindow.py")
 from UI_files.ui_mainwindow import Ui_MainWindow
-import signalwindow
-import meshwindow
-import extractor
-import data
+from signalwindow import *
+from meshwindow import *
+from extractor import *
+from data import *
 
 
 class ThreadSignals(QObject):
@@ -55,20 +55,12 @@ class ThreadClass(QRunnable):
 
 class MainWindow(QMainWindow):
 
-    def __init__(self):
+    def __init__(self, parent=None):
         super(MainWindow, self).__init__()
 
         # Setup the main window GUI
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
-        # Setup the signal plotting window
-        self.signal_window = signalwindow.SignalWindow()
-        self.ui.verticalLayout_graph_holder.addWidget(self.signal_window.graph)
-
-        # Setup the mesh plotting window
-        self.mesh_window = meshwindow.MeshWindow()
-        self.ui.vispy_layout.addWidget(self.mesh_window.canvas.native)
 
         # Init other variables
         self.tree_view_model = QFileSystemModel()
@@ -78,8 +70,18 @@ class MainWindow(QMainWindow):
         self.data_obj = None
         self.threadpool = QThreadPool()
 
+        # Setup the signal plotting window
+        self.signal_window = SignalWindow(self)
+        self.ui.verticalLayout_graph_holder.addWidget(self.signal_window.graph)
+        signal_type_list = ["Unipolar", "Bipolar", "Reference", "12-lead ECG"]
+        self.ui.comboBox_signal_type.addItems(signal_type_list)
+
+        # Setup the mesh plotting window
+        self.mesh_window = MeshWindow(self)
+        self.ui.vispy_layout.addWidget(self.mesh_window.canvas.native)
+
         # Make the button connections
-        self.make_button_connections()
+        self.make_connections()
 
         # Search for existing extracted cases
         self.find_saved_cases()
@@ -88,8 +90,8 @@ class MainWindow(QMainWindow):
         self.ui.lineEdit_directory.setText(os.getcwd() + "/example_data/CartoStudy2")
         self.dir_changed()
 
-    def make_button_connections(self):
-        # Mainwindow GUI buttons / signals
+    def make_connections(self):
+        # Mainwindow:Mainwindow GUI buttons / signals
         self.ui.toolButton_directory.clicked.connect(self.find_directory)
         self.ui.lineEdit_directory.textChanged.connect(self.dir_changed)
         self.ui.pushButton_close.clicked.connect(self.close)
@@ -97,7 +99,9 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_import_study.clicked.connect(self.import_study_button_pushed)
         self.ui.pushButton_delete_study.clicked.connect(self.delete_study_button_pushed)
         self.ui.treeView_casesDir.clicked.connect(self.set_import_case_filepath)
-        self.ui.spinBox_signals.valueChanged.connect(self.update_signal_window)
+
+        # Mainwindow:Signalwindow GUI buttons / signals
+        self.ui.spinBox_signals.valueChanged.connect(self.signal_window.update_plot)
 
         # Pyqtgraph (signal window) signals
         self.signal_window.graph.scene().sigMouseMoved.connect(self.set_sig_win_pos_label)
@@ -189,7 +193,7 @@ class MainWindow(QMainWindow):
 
         # Create an extractor object
         if self.ui.radioButton_carto.isChecked():
-            e = extractor.Extractor("carto", self.ui.lineEdit_directory.text(), new_file_path, study_name)
+            e = Extractor("carto", self.ui.lineEdit_directory.text(), new_file_path, study_name)
         elif self.ui.radioButton_other.isChecked():
             QMessageBox.information(self, "Error", "No other option currently")
             return
@@ -242,9 +246,11 @@ class MainWindow(QMainWindow):
                 elif msgbox == QMessageBox.Cancel:
                     return
 
-            self.data_obj = data.Data(self.import_case_filepath)
-            self.update_signal_window()
-            self.update_mesh_window()
+            print(str(self.data_obj))
+            self.data_obj = Data(self.import_case_filepath)
+            print(str(self.data_obj))
+            self.signal_window.update_plot()
+            self.mesh_window.update_plot()
         else:
             QMessageBox.information(self, "Error", "Import study file path not set.\nMake sure a study is selected.")
             return
@@ -264,22 +270,6 @@ class MainWindow(QMainWindow):
 
             elif msgbox == QMessageBox.No:
                 return
-
-    def update_signal_window(self):
-        if self.data_obj is None:
-            return
-        else:
-            channel = self.ui.spinBox_signals.value()
-            if channel > self.data_obj.unipolar.shape[0]:
-                channel = self.data_obj.unipolar.shape[0]
-                self.ui.spinBox_signals.setValue(channel)
-            self.signal_window.update_plot(self.data_obj, channel - 1, "tmp")
-
-    def update_mesh_window(self):
-        if self.data_obj is None:
-            return
-        else:
-            self.mesh_window.update_plot()
 
     def set_sig_win_pos_label(self, mouse_event):
         p = self.signal_window.graph.plotItem.vb.mapSceneToView(mouse_event)
