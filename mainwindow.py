@@ -246,9 +246,10 @@ class MainWindow(QMainWindow):
                 elif msgbox == QMessageBox.Cancel:
                     return
 
-            print(str(self.data_obj))
+            # Create the data object from the provided .h5 file
             self.data_obj = Data(self.import_case_filepath)
-            print(str(self.data_obj))
+
+            # Update the graphics now that the data object contains data
             self.signal_window.update_plot()
             self.mesh_window.update_plot()
         else:

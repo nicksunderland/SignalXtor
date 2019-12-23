@@ -7,8 +7,8 @@ class MeshWindow:
 
     def __init__(self, parent):
 
-        # Access to parent main GUI
-        self.main_ui = parent
+        # Access to parent main window GUI
+        self.mw = parent
 
         self.canvas = scene.SceneCanvas(keys='interactive', size=(800, 600))
         self.view = self.canvas.central_widget.add_view()

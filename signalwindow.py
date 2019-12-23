@@ -10,8 +10,8 @@ class SignalWindow(QObject):
     def __init__(self, parent):
         super(SignalWindow, self).__init__()
 
-        # Access to parent main GUI
-        self.main_ui = parent
+        # Access to parent main window GUI
+        self.mw = parent
 
         # The actual plot
         self.graph = pyqtgraph.PlotWidget()
@@ -28,68 +28,61 @@ class SignalWindow(QObject):
         self.graph.scene().sigMouseClicked.connect(self.handle_mouse_click)
 
     def update_plot(self):
-
-        print("Trying to update plot")
-
         # Check if there is any data, return if not
-        if self.main_ui.data_obj is None:
-            print("data obj None")
+        if self.mw.data_obj is None:
+            print("No data object yet, abort...")
             return
 
+        for addpt in self.mw.data_obj.activation_list:
+
+
+
         # Decide which signal needs to be plotted
-        channel = self.main_ui.ui.spinBox_signals.value()
-        sig_type = str(self.main_ui.ui.comboBox_signal_type.currentText())
-        print(sig_type)
+        channel = self.mw.ui.spinBox_signals.value()
+        sig_type = str(self.mw.ui.comboBox_signal_type.currentText())
+        print("Channel = " + str(channel))
+        print("Signal  = " + str(sig_type))
 
-        return
-
-        if channel > self.data_obj.unipolar.shape[0]:
+        if channel > self.mw.data_obj.unipolar.shape[0]:
             channel = self.data_obj.unipolar.shape[0]
             self.ui.spinBox_signals.setValue(channel)
             self.signal_window.update_plot(self.data_obj, channel - 1, "tmp")
 
-        self.graph.clear()
+
+        signal_idx = channel - 1
         self.graph.setTitle("Channel " + str(signal_idx + 1))
-        self.graph.plot(data_obj.unipolar[signal_idx, :] * float(data_obj.mV_gain), pen=pyqtgraph.mkPen('g', width=2))
+        self.graph.plot(self.mw.data_obj.unipolar[signal_idx, :] * float(self.mw.data_obj.mV_gain), pen=pyqtgraph.mkPen('g', width=2))
 
     def handle_mouse_click(self, event):
+        # Check if there is any data, return if not
+        if self.mw.data_obj is None:
+            print("No data object yet, abort...")
+            return
+
         # EMG editing off
-        if self.main_ui.radioButton_EMG_edit_off.isChecked():
+        if self.mw.ui.radioButton_EMG_edit_off.isChecked():
             print("EMG editing off")
             return
         # EMG editing on (editing on existing EMG interest points)
-        elif self.main_ui.radioButton_EMG_edit_on.isChecked():
+        elif self.mw.ui.radioButton_EMG_edit_on.isChecked():
             print("EMG editing on")
         # Add new EMG interest point
-        elif self.main_ui.radioButton_EMG_edit_add.isChecked():
+        elif self.mw.ui.radioButton_EMG_edit_add.isChecked():
             print("EMG editing - add")
             self.add_EMG_point(event)
         # Delete nearest EMG interest point
-        elif self.main_ui.radioButton_EMG_edit_delete.isChecked():
+        elif self.mw.ui.radioButton_EMG_edit_delete.isChecked():
             print("EMG editing - delete")
 
     def add_EMG_point(self, event):
-        # Get the x and y values
-        pos_y_mV = self.graph.plotItem.vb.mapSceneToView(event.scenePos()).y()
-        pos_x_msec = self.graph.plotItem.vb.mapSceneToView(event.scenePos()).x()
+        # Get the necessary data from the mouse click
+        x_time = self.graph.plotItem.vb.mapSceneToView(event.scenePos()).x()
 
-        print("x=" + str(pos_x_msec) + " y=" + str(pos_y_mV))
+        # Define the initial window variables around the point
+        pre_x = 50
+        post_x = 50
+        win_shape = "exp"
 
-        return
-        #
-        # # Create new EMGpoint instance
-        # newpt = EMGpoint()
-        #
-        # def __init__(self, point_time, pre_pt_win=50, post_pt_win=50, win_shape="exp"):
-        #
-        # #
-        # # pos = self.graph.plotItem.vb.mapSceneToView(event.scenePos())
-        # print("x=" + str(pos.x()) + " y=" + str(pos.y()))
-        #
-        # if self.main_ui.radioButton_EMG_edit_off.isChecked():
-        #     self.graph.plotItem.addLine(x=pos.x(), y=None, pen=pyqtgraph.mkPen('r', width=2))
-        # elif self.main_ui.radioButton_EMG_edit_on.isChecked():
-        #     self.graph.plotItem.addLine(x=pos.x(), y=None, pen=pyqtgraph.mkPen('b', width=2))
-        # else:
-        #     self.graph.plotItem.addLine(x=pos.x(), y=None, pen=pyqtgraph.mkPen('y', width=2))
-        #
+        # Create new EMGpoint instance and add to the list
+        newpt = EMGpoint(x_time, pre_x, post_x, win_shape)
+        self.mw.data_obj.activation_list.append(newpt)
