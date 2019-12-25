@@ -99,12 +99,24 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_import_study.clicked.connect(self.import_study_button_pushed)
         self.ui.pushButton_delete_study.clicked.connect(self.delete_study_button_pushed)
         self.ui.treeView_casesDir.clicked.connect(self.set_import_case_filepath)
+        self.ui.radioButton_EMG_edit_add.toggled.connect(self.handle_EMG_radio_buttons)
+        self.ui.radioButton_EMG_edit_off.toggled.connect(self.handle_EMG_radio_buttons)
+        self.ui.radioButton_EMG_edit_delete.toggled.connect(self.handle_EMG_radio_buttons)
+        self.ui.radioButton_EMG_edit_on.toggled.connect(self.handle_EMG_radio_buttons)
 
         # Mainwindow:Signalwindow GUI buttons / signals
         self.ui.spinBox_signals.valueChanged.connect(self.signal_window.update_plot)
 
         # Pyqtgraph (signal window) signals
         self.signal_window.graph.scene().sigMouseMoved.connect(self.set_sig_win_pos_label)
+
+    def handle_EMG_radio_buttons(self):
+        if self.ui.radioButton_EMG_edit_off.isChecked():
+            self.ui.radioButton_EMG_activation.setEnabled(False)
+            self.ui.radioButton_EMG_subtraction.setEnabled(False)
+        else:
+            self.ui.radioButton_EMG_activation.setEnabled(True)
+            self.ui.radioButton_EMG_subtraction.setEnabled(True)
 
     def find_saved_cases(self):
         # Set the treeView for the case_files directory

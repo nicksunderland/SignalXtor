@@ -7,11 +7,12 @@ class EMGpoint:
     A class defining a particular point of interest in the EMG - e.g. a stimulation time,
     QRS activation time, or atrial activation time
     """
-    def __init__(self, point_time, pre_pt_win=50, post_pt_win=50, win_shape="exp"):
+    def __init__(self, point_time, pre_pt_win=50, post_pt_win=50, win_shape="exp", highlighted=False):
         self.point_time = point_time
         self.pre_pt_win = pre_pt_win
         self.post_pt_win = post_pt_win
         self.win_shape = win_shape
+        self.highlighted = highlighted
 
 
 class Data:
