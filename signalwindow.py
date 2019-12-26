@@ -36,7 +36,7 @@ class SignalWindow(QObject):
         self.graph.clear()
 
         # Check if there is any data, return if not
-        if self.mw.data_obj is None:
+        if self.mw.data_obj.study_file_path is None:
             return
 
         # Draw the EMG points (activations +/- subtractions)
@@ -109,7 +109,7 @@ class SignalWindow(QObject):
         # Redraw
         self.update_plot()
 
-    def handle_key_press(self, keyPressEvent):
+    def handle_key_press(self, key_press_event):
         # Check if there is any data, return if not
         if self.mw.data_obj.study_file_path is None:
             return
@@ -117,24 +117,43 @@ class SignalWindow(QObject):
         # If EMG 'editing' not on return
         if not self.mw.ui.radioButton_EMG_edit_on.isChecked():
             return
-        # EMG position editing if LMB pressed
-        elif keyPressEvent.key() == Qt.Key_Right:
-            self.update_EMG_point(+1)
-        elif keyPressEvent.key() == Qt.Key_Left:
-            self.update_EMG_point(-1)
+        # Else do stuff to the EMG point time / window --> tuple(window start, centre point, window end)
+        elif (key_press_event.key() == Qt.Key_Right) and (key_press_event.modifiers() & Qt.ShiftModifier):
+            move_dist_tuple = (-1, 0, 0)
+            self.update_EMG_point(move_dist_tuple)
+        elif (key_press_event.key() == Qt.Key_Left) and (key_press_event.modifiers() & Qt.ShiftModifier):
+            move_dist_tuple = (+1, 0, 0)
+            self.update_EMG_point(move_dist_tuple)
+        elif (key_press_event.key() == Qt.Key_Right) and (key_press_event.modifiers() & Qt.ControlModifier):
+            move_dist_tuple = (0, 0, +1)
+            self.update_EMG_point(move_dist_tuple)
+        elif (key_press_event.key() == Qt.Key_Left) and (key_press_event.modifiers() & Qt.ControlModifier):
+            move_dist_tuple = (0, 0, -1)
+            self.update_EMG_point(move_dist_tuple)
+        elif key_press_event.key() == Qt.Key_Right:
+            move_dist_tuple = (0, +1, 0)
+            self.update_EMG_point(move_dist_tuple)
+        elif key_press_event.key() == Qt.Key_Left:
+            move_dist_tuple = (0, -1, 0)
+            self.update_EMG_point(move_dist_tuple)
 
         # Redraw
         self.update_plot()
 
-    def update_EMG_point(self, move_dist):
+    def update_EMG_point(self, move_dist_tuple):
+        # tuple(window start, centre point, window end)
         # Find the highlighted point
         for pt in self.mw.data_obj.subtraction_list:
             if pt.highlighted is True:
-                pt.point_time = pt.point_time + move_dist
+                pt.point_time = pt.point_time + move_dist_tuple[1]
+                pt.pre_pt_win = pt.pre_pt_win + move_dist_tuple[0]
+                pt.post_pt_win = pt.post_pt_win + move_dist_tuple[2]
                 pt.create_window_array()
         for pt in self.mw.data_obj.activation_list:
             if pt.highlighted is True:
-                pt.point_time = pt.point_time + move_dist
+                pt.point_time = pt.point_time + move_dist_tuple[1]
+                pt.pre_pt_win = pt.pre_pt_win + move_dist_tuple[0]
+                pt.post_pt_win = pt.post_pt_win + move_dist_tuple[2]
                 pt.create_window_array()
 
     def delete_EMG_point(self):
@@ -153,13 +172,11 @@ class SignalWindow(QObject):
 
         # Define the initial window variables around the point
         signal_len = self.mw.data_obj.unipolar.shape[1]
-        pre_x = 50
-        post_x = 50
-        win_shape = "exp"
+        defaults = self.mv.data_obj.filter_settings
         highlight_point = True
 
         # Create new EMGpoint instance
-        newpt = EMGpoint(x_time, signal_len, pre_x, post_x, win_shape, highlight_point)
+        newpt = EMGpoint(x_time, signal_len, defaults, highlight_point)
 
         # Unhighlight the rest of the points
         self.unhighlight_all_points()
@@ -173,13 +190,11 @@ class SignalWindow(QObject):
 
         # Define the initial window variables around the point
         signal_len = self.mw.data_obj.unipolar.shape[1]
-        pre_x = 50
-        post_x = 50
-        win_shape = "exp"
+        defaults = self.mw.data_obj.filter_settings
         highlight_point = True
 
         # Create new EMGpoint instance
-        newpt = EMGpoint(x_time, signal_len, pre_x, post_x, win_shape, highlight_point)
+        newpt = EMGpoint(x_time, signal_len, defaults, highlight_point)
 
         # Unhighlight the rest of the points
         self.unhighlight_all_points()

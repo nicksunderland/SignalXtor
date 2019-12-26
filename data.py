@@ -7,11 +7,12 @@ class EMGpoint:
     A class defining a particular point of interest in the EMG - e.g. a stimulation time,
     QRS activation time, or atrial activation time
     """
-    def __init__(self, point_time, signal_length, pre_pt_win=50, post_pt_win=50, win_shape="exp", highlighted=False):
+    def __init__(self, point_time, signal_length, default_settings, highlighted=False):
         self.point_time = point_time
-        self.pre_pt_win = pre_pt_win
-        self.post_pt_win = post_pt_win
-        self.win_shape = win_shape
+        self.pre_pt_win = default_settings.pre_pt_win
+        self.post_pt_win = default_settings.post_pt_win
+        self.win_shape = default_settings.win_shape
+        self.tukey_param = default_settings.tukey_param
         self.highlighted = highlighted
         self.signal_length = signal_length
 
@@ -25,10 +26,21 @@ class EMGpoint:
         """
         win_len = self.post_pt_win + self.pre_pt_win + 1
         self.window_array_x = np.linspace(self.point_time - self.pre_pt_win, self.point_time + self.post_pt_win, win_len, dtype=int)
-        a = np.logspace(1, 3, self.pre_pt_win) / 1000
+        a = np.linspace(0, 1, self.pre_pt_win)
         b = 1
-        c = np.logspace(3, 1, self.post_pt_win) / 1000
+        c = np.linspace(1, 0, self.post_pt_win)
         self.window_array_y = np.concatenate((a, b, c), axis=None)
+
+
+class FilterSettings:
+    """
+    A class to hold the filter settings
+    """
+    def __init__(self):
+        self.pre_pt_win = 50
+        self.post_pt_win = 50
+        self.win_shape = "log"
+        self.tukey_param = 1.0
 
 
 class Data:
@@ -53,6 +65,9 @@ class Data:
         self.subtraction_list = []
         self.activation_list = []
 
+        # Init a filter settings object
+        self.filter_settings = FilterSettings()
+
     def set_h5_filepath(self, study_file_path):
         self.study_file_path = study_file_path
 
@@ -76,11 +91,6 @@ class Data:
 
         # Adjust the subtraction windows according to each EMG point
         for pt in self.subtraction_list:
-            print(sub_arr.shape)
-            print(pt.window_array_x.shape)
-            print(pt.window_array_x)
-            print(pt.window_array_y.shape)
-            print(pt.window_array_y)
             sub_arr[0, pt.window_array_x] = 1 - pt.window_array_y
 
         # Multiply the channels with the subtraction array

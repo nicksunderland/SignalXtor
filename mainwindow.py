@@ -7,6 +7,7 @@ from signalwindow import *
 from meshwindow import *
 from extractor import *
 from data import *
+from defaultsettingsdialog import *
 
 
 class ThreadSignals(QObject):
@@ -54,6 +55,7 @@ class ThreadClass(QRunnable):
 
 class MainWindow(QMainWindow):
 
+    # Mainwindow signals
     keyPressed = QtCore.pyqtSignal(object)
 
     def __init__(self, parent=None):
@@ -104,6 +106,7 @@ class MainWindow(QMainWindow):
         self.ui.radioButton_EMG_edit_off.toggled.connect(self.handle_EMG_radio_buttons)
         self.ui.radioButton_EMG_edit_delete.toggled.connect(self.handle_EMG_radio_buttons)
         self.ui.radioButton_EMG_edit_on.toggled.connect(self.handle_EMG_radio_buttons)
+        self.ui.toolButton_EMG_point_defaults.clicked.connect(self.set_EMG_defaults)
 
         # Mainwindow:Signalwindow GUI buttons / signals
         self.ui.spinBox_signals.valueChanged.connect(self.signal_window.update_plot)
@@ -115,7 +118,6 @@ class MainWindow(QMainWindow):
         # Mainwindow:Data
         self.ui.pushButton_subtract_EMG_points.clicked.connect(self.data_obj.subtraction)
         self.ui.pushButton_subtract_EMG_points.clicked.connect(self.signal_window.update_plot)
-
 
     def handle_EMG_radio_buttons(self):
         if self.ui.radioButton_EMG_edit_off.isChecked():
@@ -298,3 +300,9 @@ class MainWindow(QMainWindow):
 
     def keyPressEvent(self, event):
         self.keyPressed.emit(event)
+
+    def set_EMG_defaults(self):
+        # Default settings dialog button pushed, open dialog
+        dialog = DefaultSettingsDialog(self)
+        dialog.exec()
+

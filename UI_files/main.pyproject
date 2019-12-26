@@ -1,3 +1,3 @@
 {
-    "files": ["ui_mainwindow.ui"]
+    "files": ["ui_mainwindow.ui","ui_default_signal_settings_dialog.ui"]
 }
