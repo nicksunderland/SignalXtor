@@ -49,6 +49,9 @@ class SignalWindow(QObject):
         for add_pt in self.mw.data_obj.activation_list:
             if add_pt.highlighted is True:
                 self.graph.addLine(x=add_pt.point_time, y=None, pen=mkPen('b', width=5))
+                self.graph.plot(add_pt.window_array_x, add_pt.window_array_y, pen=mkPen('w', width=2))
+                self.graph.plot([add_pt.point_time-add_pt.pre_pt_win], [0], symbolPen='w', symbol='o', symbolBrush='w')
+                self.graph.plot([add_pt.point_time+add_pt.post_pt_win], [0], symbolPen='w', symbol='o', symbolBrush='w')
                 self.graph.plot([add_pt.point_time], [0], symbolPen='b', symbol='o', symbolBrush='b')
             else:
                 self.graph.addLine(x=add_pt.point_time, y=None, pen=mkPen('b', width=2))
@@ -57,6 +60,9 @@ class SignalWindow(QObject):
         for sub_pt in self.mw.data_obj.subtraction_list:
             if sub_pt.highlighted:
                 self.graph.addLine(x=sub_pt.point_time, y=None, pen=mkPen('r', width=5))
+                self.graph.plot(sub_pt.window_array_x, sub_pt.window_array_y, pen=mkPen('w', width=2))
+                self.graph.plot([sub_pt.point_time-sub_pt.pre_pt_win], [0], symbolPen='w', symbol='o', symbolBrush='w')
+                self.graph.plot([sub_pt.point_time+sub_pt.post_pt_win], [0], symbolPen='w', symbol='o', symbolBrush='w')
                 self.graph.plot([sub_pt.point_time], [0], symbolPen='r', symbol='o', symbolBrush='r')
             else:
                 self.graph.addLine(x=sub_pt.point_time, y=None, pen=mkPen('r', width=2))
@@ -96,23 +102,35 @@ class SignalWindow(QObject):
                 self.sub_EMG_point(event)
         # Delete nearest EMG interest point
         elif self.mw.ui.radioButton_EMG_edit_delete.isChecked():
-            print("EMG editing - delete function needs to be written")
+            self.delete_EMG_point()
+            print("EMG editing - delete")
 
         # Redraw
         self.update_plot()
+
+    def delete_EMG_point(self):
+        if self.mw.ui.radioButton_EMG_activation.isChecked():
+            for pt in self.mw.data_obj.activation_list:
+                if pt.highlighted is True:
+                    self.mw.data_obj.activation_list.remove(pt)
+        elif self.mw.ui.radioButton_EMG_subtraction.isChecked():
+            for pt in self.mw.data_obj.subtraction_list:
+                if pt.highlighted is True:
+                    self.mw.data_obj.subtraction_list.remove(pt)
 
     def acti_EMG_point(self, event):
         # Get the necessary data from the mouse click
         x_time = self.graph.plotItem.vb.mapSceneToView(event.scenePos()).x()
 
         # Define the initial window variables around the point
+        signal_len = self.mw.data_obj.unipolar.shape[1]
         pre_x = 50
         post_x = 50
         win_shape = "exp"
         highlight_point = True
 
         # Create new EMGpoint instance
-        newpt = EMGpoint(x_time, pre_x, post_x, win_shape, highlight_point)
+        newpt = EMGpoint(x_time, signal_len, pre_x, post_x, win_shape, highlight_point)
 
         # Unhighlight the rest of the points
         self.unhighlight_all_points()
@@ -125,13 +143,14 @@ class SignalWindow(QObject):
         x_time = self.graph.plotItem.vb.mapSceneToView(event.scenePos()).x()
 
         # Define the initial window variables around the point
+        signal_len = self.mw.data_obj.unipolar.shape[1]
         pre_x = 50
         post_x = 50
         win_shape = "exp"
         highlight_point = True
 
         # Create new EMGpoint instance
-        newpt = EMGpoint(x_time, pre_x, post_x, win_shape, highlight_point)
+        newpt = EMGpoint(x_time, signal_len, pre_x, post_x, win_shape, highlight_point)
 
         # Unhighlight the rest of the points
         self.unhighlight_all_points()

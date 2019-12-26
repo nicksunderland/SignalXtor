@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
         self.tree_view_model.setNameFilters(["*.h5"])
         self.studies_list = []
         self.import_case_filepath = ""
-        self.data_obj = None
+        self.data_obj = Data()
         self.threadpool = QThreadPool()
 
         # Setup the signal plotting window
@@ -109,6 +109,11 @@ class MainWindow(QMainWindow):
 
         # Pyqtgraph (signal window) signals
         self.signal_window.graph.scene().sigMouseMoved.connect(self.set_sig_win_pos_label)
+
+        # Mainwindow:Data
+        self.ui.pushButton_subtract_EMG_points.clicked.connect(self.data_obj.subtraction)
+        self.ui.pushButton_subtract_EMG_points.clicked.connect(self.signal_window.update_plot)
+
 
     def handle_EMG_radio_buttons(self):
         if self.ui.radioButton_EMG_edit_off.isChecked():
@@ -249,7 +254,7 @@ class MainWindow(QMainWindow):
 
     def import_study_button_pushed(self):
         if os.path.isfile(self.import_case_filepath):
-            if self.data_obj is not None:
+            if self.data_obj.study_file_path is not None:
                 msgbox = QMessageBox.warning(None, "Warning", "Study: \n" + self.data_obj.study_file_path +
                                              "\n...will be closed.\nDo you want to save changes?",
                                              QMessageBox.Save | QMessageBox.No | QMessageBox.Cancel)
@@ -258,8 +263,9 @@ class MainWindow(QMainWindow):
                 elif msgbox == QMessageBox.Cancel:
                     return
 
-            # Create the data object from the provided .h5 file
-            self.data_obj = Data(self.import_case_filepath)
+            # Fill the data object from the provided .h5 file
+            self.data_obj.set_h5_filepath(self.import_case_filepath)
+            self.data_obj.read_in_data()
 
             # Update the graphics now that the data object contains data
             self.signal_window.update_plot()
