@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QFileSystemModel, QRadioButton
 from PyQt5.QtCore import QRunnable, QThreadPool, QObject, pyqtSignal, pyqtSlot
-import os, traceback, sys, subprocess
-import re
+import os, traceback, subprocess
 os.system("pyuic5 UI_files/ui_mainwindow.ui > UI_files/ui_mainwindow.py")
 from UI_files.ui_mainwindow import Ui_MainWindow
 from signalwindow import *
@@ -54,6 +53,8 @@ class ThreadClass(QRunnable):
 
 
 class MainWindow(QMainWindow):
+
+    keyPressed = QtCore.pyqtSignal(object)
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__()
@@ -109,6 +110,7 @@ class MainWindow(QMainWindow):
 
         # Pyqtgraph (signal window) signals
         self.signal_window.graph.scene().sigMouseMoved.connect(self.set_sig_win_pos_label)
+        self.keyPressed.connect(self.signal_window.handle_key_press)
 
         # Mainwindow:Data
         self.ui.pushButton_subtract_EMG_points.clicked.connect(self.data_obj.subtraction)
@@ -293,3 +295,6 @@ class MainWindow(QMainWindow):
     def set_sig_win_pos_label(self, mouse_event):
         p = self.signal_window.graph.plotItem.vb.mapSceneToView(mouse_event)
         self.ui.label_graph_position.setText("{0:.2f}(mV) - {1:.0f}(msec)".format(p.y(), p.x()))
+
+    def keyPressEvent(self, event):
+        self.keyPressed.emit(event)

@@ -1,5 +1,6 @@
 from pyqtgraph import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from data import *
 
 
@@ -81,7 +82,7 @@ class SignalWindow(QObject):
 
     def handle_mouse_click(self, event):
         # Check if there is any data, return if not
-        if self.mw.data_obj is None:
+        if self.mw.data_obj.study_file_path is None:
             return
 
         # Set the closest EMG point to be highlighted
@@ -107,6 +108,34 @@ class SignalWindow(QObject):
 
         # Redraw
         self.update_plot()
+
+    def handle_key_press(self, keyPressEvent):
+        # Check if there is any data, return if not
+        if self.mw.data_obj.study_file_path is None:
+            return
+
+        # If EMG 'editing' not on return
+        if not self.mw.ui.radioButton_EMG_edit_on.isChecked():
+            return
+        # EMG position editing if LMB pressed
+        elif keyPressEvent.key() == Qt.Key_Right:
+            self.update_EMG_point(+1)
+        elif keyPressEvent.key() == Qt.Key_Left:
+            self.update_EMG_point(-1)
+
+        # Redraw
+        self.update_plot()
+
+    def update_EMG_point(self, move_dist):
+        # Find the highlighted point
+        for pt in self.mw.data_obj.subtraction_list:
+            if pt.highlighted is True:
+                pt.point_time = pt.point_time + move_dist
+                pt.create_window_array()
+        for pt in self.mw.data_obj.activation_list:
+            if pt.highlighted is True:
+                pt.point_time = pt.point_time + move_dist
+                pt.create_window_array()
 
     def delete_EMG_point(self):
         if self.mw.ui.radioButton_EMG_activation.isChecked():
